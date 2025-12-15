@@ -7,15 +7,18 @@ public class Program {
 
     public static void main(String[] args) {
 
-        List<Integer> intList = new ArrayList<>();
-        intList.add(10);
-        intList.add(5);
+        List<Object> myObjs = new ArrayList<>();
+        myObjs.add("Maria");
+        myObjs.add("Alex");
 
-        //Covariancia, aceita acessar a lista mas não aceita adicionar nada na lista.
-        List<? extends Number> list = intList;
+        //Contravariancia, aceita adicionar elementos na lista mas não aceita acessar a lista.
+        List<? super Number> myNums = myObjs;
 
-        Number x = list.get(0);
+        myNums.add(10);
+        myNums.add(3.14);
 
-        list.add(20);
+        Number x = myNums.get(0);
+
+
     }
 }
